@@ -171,7 +171,7 @@ def chat():
 
     # Return chat response
     return jsonify({
-        'chat_response': chat_response['choices'][0]['message']['content'],
+        'system_message': chat_response['choices'][0]['message']['content'],
     }), 200
 
 # Example usage for chat route in js on the clientside:
