@@ -1,22 +1,13 @@
 import React from "react"
 import "./ChatStyle.css"
+import { useData } from "../DataProvider/DataContext";
 
 export default function Message () {
 
-const messages = [
-    {
-        id: 1,
-        sender : "userName",
-        message : "hello, how are you?",
-        time : 1,
-    },
-    {
-        id: 2,
-        sender : "botName",
-        message : "I'm great, just grabbing a byte!",
-        time : 2,
-    }
-]
+
+    const {sendMessageToServer, newMessage, setNewMessage, setChatHistory, chatHistory} = useData()
+
+const messages = chatHistory
 
 
     const chatLog = messages.map(message =>{
