@@ -1,0 +1,10 @@
+/* Font used for name  */
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.app {
+  display: flex;
+}

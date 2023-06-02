@@ -1,0 +1,23 @@
+.chat-window-container {
+    height: 50vh;
+    width: 35vh;
+    display: flex;
+    flex-direction: column;
+    border: red solid ;
+    position: relative;
+
+}
+
+.chat-header {
+    width: 35vh;
+    height: 10vh;
+}
+.chat-footer {
+    width: 35vh;
+    height: 10vh;
+}
+
+.chat-log-item {
+    width: 35vh;
+    height: 10vh;
+}
