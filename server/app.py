@@ -84,11 +84,11 @@ app = Flask(__name__)
 
 # Configure flask_cors for localhost:3000 - 3005
 CORS(app, resources={r'/*': {'origins': [
-    'http://localhost:3000/'
-    'http://localhost:3001/'
-    'http://localhost:3002/'
-    'http://localhost:3003/'
-    'http://localhost:3004/'
+    'http://localhost:3000/',
+    'http://localhost:3001/',
+    'http://localhost:3002/',
+    'http://localhost:3003/',
+    'http://localhost:3004/',
     'http://localhost:3005/'
 ]}})
 
