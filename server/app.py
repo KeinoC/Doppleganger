@@ -96,7 +96,7 @@ def chat():
             del message['system_message']
 
     # Get chat response
-    chat_response = openai.Completion.create(
+    chat_response = openai.ChatCompletion.create(
         model='gpt-3.5-turbo',
         messages=conversation_history,
     )
