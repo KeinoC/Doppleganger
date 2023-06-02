@@ -1,0 +1,32 @@
+# Doppleganger/server/docker-compose.yml
+
+version: '3.8'
+
+services:
+  app:
+    build: .
+    command: gunicorn -b 0.0.0.0:8000 app:app
+    restart: always
+    volumes:
+      - .:/app
+    networks:
+      - mynet
+
+  nginx:
+    depends_on:
+      - app
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    restart: always
+    image: nginx
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - mynet
+
+networks:
+  mynet:
