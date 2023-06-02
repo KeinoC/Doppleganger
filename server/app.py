@@ -54,6 +54,8 @@ from pymongo import MongoClient
 from dotenv import load_dotenv
 import os
 import openai
+import requests
+import json
 from pathlib import Path
 
 # Load environment variables
@@ -63,12 +65,50 @@ load_dotenv(os.path.join(BASE_DIR, '.env'))
 # Initialize OpenAI API
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
+# MongoDB Data API constants
+MONGODB_API_BASE = 'https://us-east-2.aws.data.mongodb-api.com'
+MONGODB_API_PATH = '/app/data-duhus/endpoint/data/v1/'
+MONGODB_API_URL = MONGODB_API_BASE + MONGODB_API_PATH
+MONGODB_API_HEADERS = {
+    'Content-Type': 'application/json',
+    'Api-Key': os.getenv('MONGODB_API_PUBLIC'),
+    'Api-Token': os.getenv('MONGODB_API_PRIVATE')
+}
+
+# Database and collection you are working with
+DATABASE = os.getenv('MONGODB_API_DATABASE')
+COLLECTION = os.getenv('MONGODB_API_COLLECTION')
+
 # Initialize Flask app
 app = Flask(__name__)
 
 @app.route('/helloworld', methods=['GET'])
 def hello_world():
     return "Hello, World Doppelganger's working!", 200
+
+@app.route('/user', methods=['POST'])
+def create_user():
+    user_data = request.json
+
+    response = requests.post(
+        f'{MONGODB_API_URL}/{DATABASE}/{COLLECTION}',
+        headers=MONGODB_API_HEADERS,
+        data=json.dumps(user_data)
+    )
+
+    return response.json(), response.status_code
+
+@app.route('/user/<username>', methods=['PATCH'])
+def update_user(username):
+    user_updates = request.json
+
+    response = requests.patch(
+        f'{MONGODB_API_URL}/{DATABASE}/{COLLECTION}/{username}',
+        headers=MONGODB_API_HEADERS,
+        data=json.dumps(user_updates)
+    )
+
+    return response.json(), response.status_code
 
 @app.route('/chat', methods=['POST'])
 def chat():
