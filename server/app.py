@@ -90,13 +90,20 @@ def hello_world():
 def create_user():
     user_data = request.json
 
-    response = requests.post(
-        f'{MONGODB_API_URL}/{DATABASE}/{COLLECTION}',
-        headers=MONGODB_API_HEADERS,
-        data=json.dumps(user_data)
-    )
+    try:
+        response = requests.post(
+            f'{MONGODB_API_URL}/{DATABASE}/{COLLECTION}',
+            headers=MONGODB_API_HEADERS,
+            data=json.dumps(user_data)
+        )
 
-    return response.json(), response.status_code
+        if response.content:
+            return response.json(), response.status_code
+        else:
+            return {}, response.status_code
+    except Exception as e:
+        return {"error": str(e)}, 500
+
 
 @app.route('/user/<username>', methods=['PATCH'])
 def update_user(username):
