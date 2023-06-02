@@ -90,19 +90,30 @@ def hello_world():
 def create_user():
     user_data = request.json
 
+    # Build the payload for MongoDB
+    payload = json.dumps({
+        "collection": COLLECTION,
+        "database": DATABASE,
+        "dataSource": "ServerlessInstance0",
+        "document": user_data
+    })
+
     try:
         response = requests.post(
-            f'{MONGODB_API_URL}/{DATABASE}/{COLLECTION}',
+            MONGODB_API_URL,
             headers=MONGODB_API_HEADERS,
-            data=json.dumps(user_data)
+            data=payload
         )
 
-        if response.content:
+        response.raise_for_status()
+        
+        if response.json():
             return response.json(), response.status_code
         else:
             return {}, response.status_code
     except Exception as e:
         return {"error": str(e)}, 500
+
 
 
 @app.route('/user/<username>', methods=['PATCH'])
