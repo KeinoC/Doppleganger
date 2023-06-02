@@ -83,16 +83,16 @@ def chat():
 
     # convert conversation history to proper format
     # From [{'user_message': 'How are you?'}, {'system_message': 'I am good, how are you?'}]
-    # To [{"role": "user", "text": "How are you?"}, {"role": "system", "text": "I am good, how are you?"}]
+    # To [{"role": "user", "content": "How are you?"}, {"role": "system", "content": "I am good, how are you?"}]
 
     for message in conversation_history:
         if 'user_message' in message:
             message['role'] = 'user'
-            message['text'] = message['user_message']
+            message['content'] = message['user_message']
             del message['user_message']
         elif 'system_message' in message:
             message['role'] = 'system'
-            message['text'] = message['system_message']
+            message['content'] = message['system_message']
             del message['system_message']
 
     # Get chat response
