@@ -124,6 +124,11 @@ def chat():
 # const data = await response.json();
 # console.log(data.chat_response);
 
+@app.errorhandler(500)
+def handle_500(e):
+    return jsonify({'error': str(e)}), 500
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
 
