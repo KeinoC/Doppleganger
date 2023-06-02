@@ -3,6 +3,7 @@ import { DataProvider } from './DataProvider/DataContext';
 import Home from "./Home/HomePage"
 import Nav from "./Home/Nav"
 import ChatWindow from './Doppelganger/ChatWindow';
+import './index.css'
 
 
 function App() {

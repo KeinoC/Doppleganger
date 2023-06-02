@@ -25,7 +25,7 @@ const Nav = () => {
     }
   ]
   return (
-    <div className="flex justify-between items-center w-full h-20 px-4 text-white ">
+    <div className="flex justify-between items-center w-full h-20 px-4 text-black ">
       <div>
           <h1 className=" select-none text-5xl font-signature ml-2">Doppelgänger</h1>
       </div>
@@ -35,7 +35,7 @@ const Nav = () => {
         {links.map(({id, link}) => (
           <li 
             key ={id} 
-            className="px-4 cursor-pointer capitalize font-medium text-white hover:text hover:scale-105 duration-200">
+            className="px-4 cursor-pointer capitalize font-medium text-black hover:text hover:scale-105 duration-200">
 
             <Link 
               to={link} 
