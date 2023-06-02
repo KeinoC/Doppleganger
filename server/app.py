@@ -81,29 +81,32 @@ def chat():
     # Get conversation history
     conversation_history = body['conversation_history']
 
-    # test return response
-    return jsonify({
-        'chat_response': 'Hello, World!',
-    }), 200
+    # convert conversation history to proper format
+    # From [{'user_message': 'How are you?'}, {'system_message': 'I am good, how are you?'}]
+    # To [{"role": "user", "text": "How are you?"}, {"role": "system", "text": "I am good, how are you?"}]
+
+    for message in conversation_history:
+        if 'user_message' in message:
+            message['role'] = 'user'
+            message['text'] = message['user_message']
+            del message['user_message']
+        elif 'system_message' in message:
+            message['role'] = 'system'
+            message['text'] = message['system_message']
+            del message['system_message']
 
     # Get chat response
     chat_response = openai.Completion.create(
-        engine='davinci',
-        prompt=f'{conversation_history}\nUsername: {username}\nDoppelganger:',
-        temperature=0.9,
-        max_tokens=150,
-        top_p=1,
-        frequency_penalty=0,
-        presence_penalty=0.6,
-        stop=['\n', ' Username:', ' Doppelganger:']
+        model='gpt-3.5-turbo',
+        messages=conversation_history,
     )
 
     # Return chat response
     return jsonify({
-        'chat_response': chat_response['choices'][0]['text'],
+        'chat_response': chat_response['choices'][0]['message']['content'],
     }), 200
 
-# Example usage for chat rout in js on the clientside:
+# Example usage for chat route in js on the clientside:
 # const response = await fetch('https://api.testapp365.com/chat', {
 #   method: 'POST',
 #   headers: {
