@@ -7,14 +7,14 @@ import ChatWindow from './Doppelganger/ChatWindow';
 
 function App() {
   
-  fetch('https://161.35.104.50/helloworld')
-  .then(response => JSON())
-  .then(data => {
-    console.log(data); // Output the response body
-  })
-  .catch(error => {
-    console.log('Error:', error);
-  });
+  // fetch('https://161.35.104.50/helloworld')
+  // .then(response => JSON())
+  // .then(data => {
+  //   console.log(data); // Output the response body
+  // })
+  // .catch(error => {
+  //   console.log('Error:', error);
+  // });
 
   return (
     <DataProvider>

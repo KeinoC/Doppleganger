@@ -21,10 +21,14 @@ const messages = [
 
     const chatLog = messages.map(message =>{
         return (
-            <div className="chat-log-item">
-            <h4>{message.sender}</h4>
-            <p>{message.message}</p>
+            <div className="chat-log-item-container">
+
+            <div className="chat-log-item-header">
             <li>{message.time}</li>
+            <h4>{message.sender}: </h4>
+            </div>
+
+            <p>{message.message}</p>
             </div>
         )
     })
