@@ -27,8 +27,8 @@ console.log(chatHistory)
 
 return (
     <form value={newMessage} onSubmit={(e)=>handleSendMessage(e)} className="message-box-container">
-        <textarea value={newMessage.userMessage} onChange={handleNewMessage} className="message-box-text" type="text"></textarea>
-    <button className="send-button" type="submit"> Send </button>
+        <textarea value={newMessage.userMessage} onChange={handleNewMessage} className="message-box-text flex-grow resize-none py-2 px-4 rounded-lg border-gray-300" type="text"></textarea>
+    <button className="send-button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit"> Send </button>
     </form>
 )
 }
