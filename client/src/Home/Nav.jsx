@@ -25,7 +25,7 @@ const Nav = () => {
     }
   ]
   return (
-    <div className="flex justify-between items-center w-full h-20 px-4 text-black ">
+    <div className="flex justify-between items-center w-full h-20 px-4 bg-purple-200 text-black ">
       <div>
           <h1 className=" select-none text-5xl font-signature ml-2">Doppelgänger</h1>
       </div>
