@@ -156,6 +156,9 @@ def chat():
     with open('conversation_history.json', 'w') as f:
         json.dump(body, f)
 
+    if len(conversation_history) == 0:
+        return "Empty message content", 400
+
     for message in conversation_history:
         if 'user_message' in message:
             message['role'] = 'user'
