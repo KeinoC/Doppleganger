@@ -8,8 +8,8 @@ export default function Message () {
 
     function handleNewMessage(e) {
         e.preventDefault()
-        const value = JSON.stringify(e.target.value)
-        setNewMessage({user_message: value})
+        const value = e.target.value
+        setNewMessage({"user_message": value})
     }
 
     // console.log(newMessage)
