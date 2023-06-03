@@ -3,7 +3,7 @@ name: Deploy to DigitalOcean
 on:
   push:
     paths:
-    - 'Doppelganger/server/app.py'
+    - 'Doppelganger/server/**'
 
 jobs:
   deploy:
