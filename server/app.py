@@ -157,7 +157,7 @@ def chat():
         json.dump(body, f)
 
     if len(conversation_history) == 0:
-        return "Empty message content", 400
+        return jsonify({"error": "conversation_history cannot be empty"}), 400
 
     for message in conversation_history:
         if 'user_message' in message:
