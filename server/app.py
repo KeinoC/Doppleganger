@@ -153,6 +153,9 @@ def chat():
     # From [{'user_message': 'How are you?'}, {'system_message': 'I am good, how are you?'}]
     # To [{"role": "user", "content": "How are you?"}, {"role": "system", "content": "I am good, how are you?"}]
 
+    with open('conversation_history.json', 'w') as f:
+        json.dump(body, f)
+
     for message in conversation_history:
         if 'user_message' in message:
             message['role'] = 'user'
