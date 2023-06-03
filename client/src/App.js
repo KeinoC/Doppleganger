@@ -23,7 +23,6 @@ function App() {
     <div className="App">
         <Nav />
         <Home />
-        <ChatWindow />
         <ChatComponent />
     </div>
     </DataProvider>
