@@ -17,7 +17,7 @@ const DataProvider = ({ children }) => {
           // "mode": "no-cors",
         },
         body: JSON.stringify({
-          username: JSON.stringify(currentUser),
+          username: currentUser,
           conversation_history: chatHistory,
         }),
       });
