@@ -94,7 +94,7 @@ CORS(app, resources={r'/*': {'origins': [
 
 @app.route('/helloworld', methods=['GET'])
 def hello_world():
-    return "Hello, World Doppelganger's working!", 200
+    return "GH ACTIONS Doppelganger's working!", 200
 
 @app.route('/user', methods=['POST'])
 def create_user():
