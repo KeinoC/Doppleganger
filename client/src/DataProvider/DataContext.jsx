@@ -22,7 +22,7 @@ const DataProvider = ({ children }) => {
       });
   
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       setChatHistory(prevChatHistory => [...prevChatHistory, data]); // Add data to chat history using prevState
     } catch (error) {
       console.error('Error:', error);
