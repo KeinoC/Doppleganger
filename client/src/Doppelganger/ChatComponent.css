@@ -4,6 +4,11 @@
     --tertiary-color: #e31b6d; /* Pluralsight Magenta */
 }
 
+pre {
+    white-space: pre;
+}
+
+
 .chat-box {
     position: fixed;
     bottom: 0;

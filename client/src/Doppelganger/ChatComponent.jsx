@@ -5,6 +5,12 @@ import "./ChatComponent.css"
 export default function ChatComponent() {
     const [currentMessage, setCurrentMessage] = useState("");
     const [messageHistory, setMessageHistory] = useState([]);
+    const [customizations, setCustomizations] = useState({
+        "doppelganger": "Chappie",
+        "developer": "Reese",
+        "stack": "React",
+        "otherSkills": ["machine learning", "natural language processing", "artificial intelligence"]
+    });
 
     const handleNewMessage = (e) => {
         e.preventDefault();
@@ -52,9 +58,17 @@ export default function ChatComponent() {
             <ul>
                 {messageHistory.map((message, index) => {
                     if (!!message["user_message"]) {
-                        return <li key={index}>{message["user_message"]}</li>
-                    } else {    
-                        return <li key={index}>{message["system_message"]}</li>
+                        return <li key={index}>
+                            <pre>
+                            {message["user_message"]}
+                            </pre>
+                            </li>
+                    } else {
+                        return <li key={index}>
+                            <pre>
+                            {message["system_message"]}
+                            </pre>
+                            </li>
                     }
                 })}
             </ul>
