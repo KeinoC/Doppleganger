@@ -14,22 +14,23 @@ export default function Message () {
 
     // console.log(newMessage)
 
-    async function handleSendMessage(e) {
+    function handleSendMessage(e) {
         e.preventDefault();
       
-        await setChatHistory([...chatHistory, newMessage]); // Update conversation history with new message and wait for it to complete
-        await sendMessageToServer(); // Wait for the message to be sent to the server
-        await setNewMessage({}); // Clear the new message and wait for it to complete
+        setChatHistory(prevChatHistory => [...prevChatHistory, newMessage]); // Update conversation history with new message using prevState
+        sendMessageToServer(); // Wait for the message to be sent to the server
       
         e.target.reset();
       }
       
+      
 
+console.log(newMessage)
 console.log(chatHistory)
 
 
 return (
-    <form value={newMessage.user_message} onSubmit={handleSendMessage} className="message-box-container">
+    <form value={newMessage.user_message} onSubmit={(e)=>handleSendMessage(e)} className="message-box-container">
         <textarea value={newMessage.user_message} onChange={handleNewMessage} className="message-box-text flex-grow resize-none py-2 px-4 rounded-lg border-gray-300" type="text"></textarea>
     <button className="send-button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit"> Send </button>
     </form>
