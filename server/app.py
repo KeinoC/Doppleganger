@@ -89,7 +89,8 @@ CORS(app, resources={r'/*': {'origins': [
     'http://localhost:3002',
     'http://localhost:3003',
     'http://localhost:3004',
-    'http://localhost:3005'
+    'http://localhost:3005',
+    'https://doppelganger-six.vercel.app/'
 ]}})
 
 @app.route('/helloworld', methods=['GET'])
