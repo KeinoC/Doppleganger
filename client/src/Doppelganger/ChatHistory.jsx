@@ -10,19 +10,17 @@ export default function Message () {
 const messages = chatHistory
 
 
-    const chatLog = messages.map(message =>{
-        return (
-            <div className="chat-log-item-container">
-
-            <div className="chat-log-item-header">
-            <li>{message.time}</li>
-            <h4>{message.sender}: </h4>
-            </div>
-
-            <p>{message.message}</p>
-            </div>
-        )
-    })
+const chatLog = messages.map((message, index) => {
+    return (
+      <div key={index} className="chat-log-item-container">
+        <div className="chat-log-item-header">
+          <li>{message.time}</li>
+          <h4>{message.sender}: </h4>
+        </div>
+        <p>{message.message}</p>
+      </div>
+    );
+  });
 return (
 
     <div className="chat-history-container">
