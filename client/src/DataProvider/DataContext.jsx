@@ -14,21 +14,21 @@ const DataProvider = ({ children }) => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          // "mode": "no-cors",
         },
         body: JSON.stringify({
           username: currentUser,
           conversation_history: chatHistory,
         }),
       });
-
+  
       const data = await response.json();
       console.log(data);
-      setChatHistory([...chatHistory, data])
+      setChatHistory(prevChatHistory => [...prevChatHistory, data]); // Add data to chat history using prevState
     } catch (error) {
       console.error('Error:', error);
     }
   }
+  
 
 
 
