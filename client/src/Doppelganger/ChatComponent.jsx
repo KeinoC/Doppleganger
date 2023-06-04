@@ -6,9 +6,9 @@ export default function ChatComponent() {
     const [currentMessage, setCurrentMessage] = useState("");
     const [customizations, setCustomizations] = useState({
         "doppelganger": "Chappie",
-        "user": "Reese",
-        "stack": "React",
-        "otherSkills": ["machine learning", "natural language processing", "artificial intelligence"]
+        "user": "Reece",
+        "stack": "React + Flask",
+        "otherSkills": ["JavaScript - 5 years", "Python - 3 years", "C# - 2 years", "SQL - 1 year"]
     });
     const [messageHistory, setMessageHistory] = useState([
         // First system message does not show up in the chat history
