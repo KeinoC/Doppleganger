@@ -4,10 +4,6 @@ import "./Team.css"
 
 export default function Team() {
 
-
-
-
-
     return (
         <div className="about-page">
             <div className="team-member-container">
