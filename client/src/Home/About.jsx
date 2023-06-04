@@ -1,20 +1,13 @@
-import React from 'react'
+import React from "react";
+import Team from "./Team"
 
-
-const About = () => {
+export default function About() {
     return (
-      <div name="about" className="w-full h-screen bg-white text-black">
-          <div className="max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full">
-              <div className="pb-8">
-                  <p className="text-4xl font-bold inline">About</p>
-              </div>
-              <p className="text-xl mt-20">
-              
-              </p>
-              <br/>
-          </div>
-      </div>
+        <div className="scroll-snap-align-start h-full min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-500 to-pink-500">
+            <div className="bg-white bg-opacity-25 rounded-lg p-10">
+            <h1 className="text-5xl text-white font-bold">About Doppelganger</h1>
+            <Team />
+            </div>
+        </div>
     )
-  }
-
-export default About;
+}

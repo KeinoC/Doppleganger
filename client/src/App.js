@@ -6,7 +6,10 @@ import ChatWindow from './Doppelganger/ChatWindow';
 import './index.css'
 import ChatComponent from './Doppelganger/ChatComponent';
 import About from './Home/About';
+<<<<<<< HEAD
 import Demo from './Home/Demo';
+=======
+>>>>>>> 436e2da7f65594cbc3cf087b17261ecbdf977b22
 
 
 function App() {
@@ -26,7 +29,10 @@ function App() {
         <Nav />
         <Home />
         <About />
+<<<<<<< HEAD
         <Demo/>
+=======
+>>>>>>> 436e2da7f65594cbc3cf087b17261ecbdf977b22
         <ChatComponent />
     </div>
     </DataProvider>
