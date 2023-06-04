@@ -35,7 +35,7 @@ export default function Home() {
                   transition={{ opacity: 1, duration: 2.5, type: 'spring', bounce: 0.25 }}
                   exit={{ opacity: 0, x: '100vw', delay: 0 }}
                 >
-                  Generate your own personal assistant. You can get its' coffee...
+                  Generate your own personal assistant. Put your best self forward.
                 </motion.div>
 
               </AnimatePresence>
