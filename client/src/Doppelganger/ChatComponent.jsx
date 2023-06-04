@@ -11,6 +11,7 @@ export default function ChatComponent() {
         "otherSkills": ["machine learning", "natural language processing", "artificial intelligence"]
     });
     const [messageHistory, setMessageHistory] = useState([
+        // First system message does not show up in the chat history
         {"system_message": `You are ${customizations.doppelganger}, ${customizations.user}'s Doppelganger. You provide information about their skills and experience. Answer as concisely as possible.`},
         {"system_message": `Hi, I'm ${customizations.doppelganger}. What can I tell you about ${customizations.user}?`},
     ]);
