@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./ChatComponent.css"
 
 
@@ -16,6 +16,9 @@ export default function ChatComponent() {
         {"system_message": `Hi, I'm ${customizations.doppelganger}. What can I tell you about ${customizations.user}?`},
     ]);
 
+    // For scrolling to bottom of chat history
+    const messagesEndRef = useRef(null);
+
     const handleNewMessage = (e) => {
         e.preventDefault();
         const value = e.target.value;
@@ -26,8 +29,6 @@ export default function ChatComponent() {
         e.preventDefault();
         setMessageHistory([...messageHistory, {"user_message": currentMessage}]);
         setCurrentMessage("");
-
-
     }
 
     useEffect(() => {
@@ -54,6 +55,9 @@ export default function ChatComponent() {
             fetchData();
         }
 
+        // Scroll to bottom of chat history
+        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+
     }, [messageHistory]);
 
     return (
@@ -64,17 +68,17 @@ export default function ChatComponent() {
             <ul>
                 {messageHistory.slice(1).map((message, index) => {
                     if (!!message["user_message"]) {
-                        return <li key={index}>
-                            <pre>
-                            {message["user_message"]}
-                            </pre>
+                        return (
+                            <li key={index} ref={index === messageHistory.slice(1).length - 1 ? messagesEndRef : null}>
+                                <pre>{message["user_message"]}</pre>
                             </li>
+                        );
                     } else {
-                        return <li key={index}>
-                            <pre>
-                            {message["system_message"]}
-                            </pre>
+                        return (
+                            <li key={index} ref={index === messageHistory.slice(1).length - 1 ? messagesEndRef : null}>
+                                <pre>{message["system_message"]}</pre>
                             </li>
+                        );
                     }
                 })}
             </ul>

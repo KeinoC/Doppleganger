@@ -9,24 +9,25 @@ pre {
 }
 
 .chat-popup-icon {
-    width: 100px; /* Adjust the width and height to your desired crop size */
-    height: 100px;
-    border-radius: 50%;
-    overflow: hidden;
+    width: 50px; /* Adjust the width and height to your desired crop size */
+    height: 50px;
+    min-height: 50px;
+    border-radius: 100%;
     position: relative;
     background-color: transparent;
-  }
+    overflow: hidden;
+    margin: 10px;
+}
 
-  .chat-popup-icon img {
+.chat-popup-icon img {
     object-fit: cover;
-    width: 400%;
-    height: 500%;
+    width: 200px;
+    height: 200px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  }
-
+}
 
 .chat-box {
     position: fixed;
@@ -38,7 +39,8 @@ pre {
     padding: 10px;
     border-radius: 10px 10px 0 0;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    max-height: 40vh;
+    height: 100%;
+    max-height: 60vh;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
@@ -51,6 +53,7 @@ pre {
 }
 
 .chat-box ul {
+    overflow-y: auto;
     list-style-type: none;
     padding: 0;
     margin: 0 0 10px 0;
