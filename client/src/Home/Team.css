@@ -12,8 +12,8 @@
     flex-direction: column;
     align-items: center;
     border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.369);
-    margin: 1em; /* Adds a margin around each team member card for better separation */
+
+    margin: 0em; /* Adds a margin around each team member card for better separation */
 }
 
 .team-member-image-container {

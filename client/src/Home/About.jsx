@@ -6,7 +6,6 @@ export default function About() {
         <div className="scroll-snap-align-start h-full min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-500 to-pink-500">
             <div className="bg-white bg-opacity-25 rounded-lg p-10">
             <h1 className="text-5xl text-white font-bold">About Doppelganger</h1>
-            <Team />
             </div>
         </div>
     )

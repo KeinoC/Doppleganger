@@ -7,22 +7,28 @@ export default function Team() {
     const links = [
         {
             id: 1,
-            img: "https://avatars.githubusercontent.com/u/78870076?v=4",
+            img: "https://ca.slack-edge.com/T02MD9XTF-U04GVCE9V36-cc3644341b8a-512",
             name: "Chris",
             href: 'https://www.linkedin.com/in/chris-choute',
         },
         {
             id: 2,
-            img: "https://avatars.githubusercontent.com/u/xxxxxx?v=4", // replace with real image link
-            name: "Keinoc",
+            img: "https://ca.slack-edge.com/T61B4TZ6Y-U057C0BUX97-1e941262c1b7-512", // replace with real image link
+            name: "Keino",
             href: 'https://www.linkedin.com/in/keinoc',
         },
         {
             id: 3,
-            img: "https://avatars.githubusercontent.com/u/yyyyyy?v=4", // replace with real image link
+            img: "https://kenneththedev.netlify.app/static/media/Profilepic.2548ec6385014eacdec7.jpg", // replace with real image link
             name: "Kenneth",
             href: 'https://www.linkedin.com/in/kenneth-the-dev/',
-        }
+        },
+        {
+            id: 4,
+            img: "https://reece-vela.com/images/selfie-pic-paint.webp",
+            name: "Reece",
+            href: 'https://www.linkedin.com/in/reece-vela/',
+        },
     ]
 
 
