@@ -1,8 +1,10 @@
-.about-page {
+.about-page .about-container {
     display: flex;
     flex-direction: column;
+    vertical-align: middle;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around!important;
     height: 100%;
     width: 100%;
 }
+
