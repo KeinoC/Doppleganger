@@ -4,13 +4,16 @@ import "./ChatComponent.css"
 
 export default function ChatComponent() {
     const [currentMessage, setCurrentMessage] = useState("");
-    const [messageHistory, setMessageHistory] = useState([]);
     const [customizations, setCustomizations] = useState({
         "doppelganger": "Chappie",
         "user": "Reese",
         "stack": "React",
         "otherSkills": ["machine learning", "natural language processing", "artificial intelligence"]
     });
+    const [messageHistory, setMessageHistory] = useState([
+        {"system_message": `You are ${customizations.doppelganger}, ${customizations.user}'s Doppelganger. You provide information about their skills and experience. Answer as concisely as possible.`},
+        {"system_message": `Hi, I'm ${customizations.doppelganger}. What can I tell you about ${customizations.user}?`},
+    ]);
 
     const handleNewMessage = (e) => {
         e.preventDefault();
@@ -59,7 +62,7 @@ export default function ChatComponent() {
             </div>
             <h1>This is {customizations.doppelganger}, {customizations.user}'s Doppelganger.</h1>
             <ul>
-                {messageHistory.map((message, index) => {
+                {messageHistory.slice(1).map((message, index) => {
                     if (!!message["user_message"]) {
                         return <li key={index}>
                             <pre>
@@ -79,8 +82,6 @@ export default function ChatComponent() {
                 <input value={currentMessage} onChange={handleNewMessage} type="text" />
                 <button type="submit">Send</button>
             </form>
-
-
         </div>
     )
 }
