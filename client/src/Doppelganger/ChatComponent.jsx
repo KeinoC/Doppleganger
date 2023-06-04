@@ -50,7 +50,9 @@ export default function ChatComponent() {
                 },
                 body: JSON.stringify({
                     "username": "defaultuser",
-                    "conversation_history": messageHistory
+                    // First element, and the last six elements are sent in the request
+                    "conversation_history": messageHistory.slice(0, 1).concat(messageHistory.slice(1).slice(-6))
+
                 })
             });
 
