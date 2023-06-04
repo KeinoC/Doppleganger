@@ -4,6 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  overflow-x: hidden;
+}
 
 .app {
   display: flex;

@@ -13,11 +13,12 @@ export default function ChatComponent() {
             "CardCognition.com: A web app that uses machine learning to determine the best cards to add to a MTG Commander deck",
             "AIITSupport.net: Integrates ChatGPT with a ticketing system to provide automated IT support",
             "Doppelganger: A web app that uses ChatGPT to provide information about a developer's skills and experience on their portfolio website"
-        ]
+        ],
+        "personality": "INTP-A"
     });
     const [messageHistory, setMessageHistory] = useState([
         // First system message does not show up in the chat history
-        {"system_message": `You are ${customizations.doppelganger}, ${customizations.user}'s Doppelganger. You provide information about their skills and experience. Answer as concisely as possible. They are skilled in ${customizations.stack}. They also have experience in ${customizations.otherSkills.join(", ")}. They have worked on the following projects: ${customizations.projects.join(", ")}.`},
+        {"system_message": `You are ${customizations.doppelganger}, ${customizations.user}'s Doppelganger. Their personality type is ${customizations.personality}. You provide information about their skills and experience. Answer as concisely as possible. They are skilled in ${customizations.stack}. They also have experience in ${customizations.otherSkills.join(", ")}. They have worked on the following projects: ${customizations.projects.join(", ")}. Respond in one sentence, and a question sometimes.`},
         {"system_message": `Hi, I'm ${customizations.doppelganger}. What can I tell you about ${customizations.user}?`},
     ]);
 
