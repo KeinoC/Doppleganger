@@ -16,6 +16,9 @@ export default function ChatComponent() {
         {"system_message": `Hi, I'm ${customizations.doppelganger}. What can I tell you about ${customizations.user}?`},
     ]);
 
+    // For opening and closing chat box
+    const [chatOpen, setChatOpen] = useState(false);
+
     // For scrolling to bottom of chat history
     const messagesEndRef = useRef(null);
 
@@ -62,30 +65,39 @@ export default function ChatComponent() {
 
     return (
         <div className="chat-box">
-            <div className="chat-popup-icon">
-                <img src="https://cdn.dribbble.com/users/160050/screenshots/9237862/media/dd331772cc3b2c9aa248b9d3a16ace86.gif"/>
+            <div className="chat-popup-header">
+                <div className="chat-popup-icon">
+                    <img src="https://cdn.dribbble.com/users/160050/screenshots/9237862/media/dd331772cc3b2c9aa248b9d3a16ace86.gif"/>
+                </div>
+                <button onClick={() => setChatOpen(!chatOpen)}>
+                    {chatOpen ? "Close Chat" : "Open Chat"}
+                </button>
             </div>
-            <ul>
-                {messageHistory.slice(1).map((message, index) => {
-                    if (!!message["user_message"]) {
-                        return (
-                            <li key={index} ref={index === messageHistory.slice(1).length - 1 ? messagesEndRef : null}>
-                                <pre>{message["user_message"]}</pre>
-                            </li>
-                        );
-                    } else {
-                        return (
-                            <li key={index} ref={index === messageHistory.slice(1).length - 1 ? messagesEndRef : null}>
-                                <pre>{message["system_message"]}</pre>
-                            </li>
-                        );
-                    }
-                })}
-            </ul>
-            <form onSubmit={handleSendMessage}>
-                <input value={currentMessage} onChange={handleNewMessage} type="text" />
-                <button type="submit">Send</button>
-            </form>
+            {chatOpen && (
+            <>
+                <ul>
+                    {messageHistory.slice(1).map((message, index) => {
+                        if (!!message["user_message"]) {
+                            return (
+                                <li key={index} ref={index === messageHistory.slice(1).length - 1 ? messagesEndRef : null}>
+                                    <pre>{message["user_message"]}</pre>
+                                </li>
+                            );
+                        } else {
+                            return (
+                                <li key={index} ref={index === messageHistory.slice(1).length - 1 ? messagesEndRef : null}>
+                                    <pre>{message["system_message"]}</pre>
+                                </li>
+                            );
+                        }
+                    })}
+                </ul>
+                <form onSubmit={handleSendMessage}>
+                    <input value={currentMessage} onChange={handleNewMessage} type="text" />
+                    <button type="submit">Send</button>
+                </form>
+            </>
+            )}
         </div>
     )
 }
