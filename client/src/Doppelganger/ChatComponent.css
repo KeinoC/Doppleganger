@@ -4,6 +4,30 @@
     --tertiary-color: #e31b6d; /* Pluralsight Magenta */
 }
 
+pre {
+    white-space: pre-wrap;
+}
+
+.chat-popup-icon {
+    width: 100px; /* Adjust the width and height to your desired crop size */
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    background-color: transparent;
+  }
+
+  .chat-popup-icon img {
+    object-fit: cover;
+    width: 400%;
+    height: 500%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+
 .chat-box {
     position: fixed;
     bottom: 0;

@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { Link } from 'react-scroll';
+import "../Doppelganger/ChatComponent.css"
 
 const Nav = () => {
 
@@ -25,7 +26,7 @@ const Nav = () => {
     }
   ]
   return (
-    <div className="flex justify-between items-center w-full h-20 px-4 text-black ">
+    <div className="flex justify-between items-center w-full h-20 px-4 text-black fixed top-0 left-0 backdrop-filter backdrop-blur-sm ">
       <div>
           <h1 className=" select-none text-5xl font-signature ml-2">Doppelgänger</h1>
       </div>

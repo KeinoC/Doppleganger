@@ -5,6 +5,12 @@ import "./ChatComponent.css"
 export default function ChatComponent() {
     const [currentMessage, setCurrentMessage] = useState("");
     const [messageHistory, setMessageHistory] = useState([]);
+    const [customizations, setCustomizations] = useState({
+        "doppelganger": "Chappie",
+        "user": "Reese",
+        "stack": "React",
+        "otherSkills": ["machine learning", "natural language processing", "artificial intelligence"]
+    });
 
     const handleNewMessage = (e) => {
         e.preventDefault();
@@ -48,13 +54,24 @@ export default function ChatComponent() {
 
     return (
         <div className="chat-box">
-            <h1>Chat Component</h1>
+            <div className="chat-popup-icon">
+                <img src="https://cdn.dribbble.com/users/160050/screenshots/9237862/media/dd331772cc3b2c9aa248b9d3a16ace86.gif"/>
+            </div>
+            <h1>This is {customizations.doppelganger}, {customizations.user}'s Doppelganger.</h1>
             <ul>
                 {messageHistory.map((message, index) => {
                     if (!!message["user_message"]) {
-                        return <li key={index}>{message["user_message"]}</li>
-                    } else {    
-                        return <li key={index}>{message["system_message"]}</li>
+                        return <li key={index}>
+                            <pre>
+                            {message["user_message"]}
+                            </pre>
+                            </li>
+                    } else {
+                        return <li key={index}>
+                            <pre>
+                            {message["system_message"]}
+                            </pre>
+                            </li>
                     }
                 })}
             </ul>
@@ -62,6 +79,8 @@ export default function ChatComponent() {
                 <input value={currentMessage} onChange={handleNewMessage} type="text" />
                 <button type="submit">Send</button>
             </form>
+
+
         </div>
     )
 }

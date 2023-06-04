@@ -5,6 +5,7 @@ import Nav from "./Home/Nav"
 import ChatWindow from './Doppelganger/ChatWindow';
 import './index.css'
 import ChatComponent from './Doppelganger/ChatComponent';
+import About from './Home/About';
 
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
     <div className="App">
         <Nav />
         <Home />
-        <ChatWindow />
+        <About />
         <ChatComponent />
     </div>
     </DataProvider>
