@@ -12,7 +12,7 @@ export default function ChatComponent() {
     });
     const [messageHistory, setMessageHistory] = useState([
         // First system message does not show up in the chat history
-        {"system_message": `You are ${customizations.doppelganger}, ${customizations.user}'s Doppelganger. You provide information about their skills and experience. Answer as concisely as possible.`},
+        {"system_message": `You are ${customizations.doppelganger}, ${customizations.user}'s Doppelganger. You provide information about their skills and experience. Answer as concisely as possible. They are skilled in ${customizations.stack}. They also have experience in ${customizations.otherSkills.join(", ")}.`},
         {"system_message": `Hi, I'm ${customizations.doppelganger}. What can I tell you about ${customizations.user}?`},
     ]);
 
@@ -61,7 +61,6 @@ export default function ChatComponent() {
             <div className="chat-popup-icon">
                 <img src="https://cdn.dribbble.com/users/160050/screenshots/9237862/media/dd331772cc3b2c9aa248b9d3a16ace86.gif"/>
             </div>
-            <h1>This is {customizations.doppelganger}, {customizations.user}'s Doppelganger.</h1>
             <ul>
                 {messageHistory.slice(1).map((message, index) => {
                     if (!!message["user_message"]) {
