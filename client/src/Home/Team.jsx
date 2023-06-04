@@ -13,13 +13,13 @@ export default function Team() {
         },
         {
             id: 2,
-            img: "https://ca.slack-edge.com/T61B4TZ6Y-U057C0BUX97-1e941262c1b7-512", // replace with real image link
+            img: "https://ca.slack-edge.com/T61B4TZ6Y-U057C0BUX97-1e941262c1b7-512",
             name: "Keino",
             href: 'https://www.linkedin.com/in/keinoc',
         },
         {
             id: 3,
-            img: "https://kenneththedev.netlify.app/static/media/Profilepic.2548ec6385014eacdec7.jpg", // replace with real image link
+            img: "https://kenneththedev.netlify.app/static/media/Profilepic.2548ec6385014eacdec7.jpg",
             name: "Kenneth",
             href: 'https://www.linkedin.com/in/kenneth-the-dev/',
         },
