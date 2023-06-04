@@ -1,26 +1,29 @@
 import React from "react";
-import { FaBeer } from 'react-icons/fa';
+import { FaLinkedin } from 'react-icons/fa';
 import "./Team.css"
 
 export default function Team() {
 
     return (
         <div className="about-page">
-            <div className="team-member-container">
+            {links.map(({id, img, name, href}) => (
+                <div className="team-member-container" key={id}>
+                    <div className="team-member-image-container">
+                        <img src={img} alt={name} />
+                    </div>
 
-                <div className="team-member-image-container">
-                    <img src="https://avatars.githubusercontent.com/u/78870076?v=4" alt="team member" />
+                    <div className="team-member-info-container">
+                        <h2>{name}</h2>
+                    </div>
+
+                    <div className="team-member-links-container">
+                        <a href={href} target="_blank" rel="noreferrer">
+                            LinkedIn <FaLinkedin size={50}/>
+                        </a>
+                    </div>
+
                 </div>
-
-                <div className="team-member-info-container">
-                    <h2>Reese</h2>
-                </div>
-
-                <div className="team-member-links-container">
-
-                </div>
-
-            </div>
+            ))}
         </div>
     );
 }

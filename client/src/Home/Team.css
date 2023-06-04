@@ -1,3 +1,9 @@
+.about-page {
+    display: flex; /* Enables flexbox */
+    justify-content: space-around; /* Arranges team member cards with equal space around them */
+    flex-wrap: wrap; /* Allows the flex items to wrap onto multiple lines if needed */
+}
+
 .team-member-container {
     justify-content: space-around;
     height: 40vh;
@@ -6,7 +12,8 @@
     flex-direction: column;
     align-items: center;
     border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.369);
+
+    margin: 0em; /* Adds a margin around each team member card for better separation */
 }
 
 .team-member-image-container {
