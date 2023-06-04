@@ -82,17 +82,8 @@ COLLECTION = os.getenv('MONGODB_API_COLLECTION')
 # Initialize Flask app
 app = Flask(__name__)
 
-# Configure flask_cors for localhost:3000 - 3005
-CORS(app, resources={r'/*': {'origins': [
-    'http://localhost:3000',
-    'http://localhost:3001',
-    'http://localhost:3002',
-    'http://localhost:3003',
-    'http://localhost:3004',
-    'http://localhost:3005',
-    'https://doppelganger-six.vercel.app/'
-    'https://doppelganger-six.vercel.app',
-]}})
+# Configure flask_cors to allow CORS
+CORS(app)
 
 @app.route('/helloworld', methods=['GET'])
 def hello_world():
